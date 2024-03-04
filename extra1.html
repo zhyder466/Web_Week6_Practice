@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .child {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+        *{
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="text" id="input">
+    <div id="container">
+
+    </div>
+    <button id="btn-add">Add Child</button>
+
+    <script>
+        const con = document.getElementById('container')
+        const btn_add = document.getElementById('btn-add')
+        const btn_remove = document.getElementById('btn-remove')
+
+        function add() {
+            const con = document.getElementById('container')
+            const child = document.createElement("child")
+            const input = document.getElementById('input')
+            child.textContent = input.value
+            child.className = 'child'
+            const delBtn = document.createElement("button")
+            delBtn.innerText = "delete"
+            child.appendChild(delBtn)
+            delBtn.onclick = function(){
+                child.remove();
+            }
+            con.appendChild(child)
+            input.value = ''
+        }
+
+
+        btn_add.onclick = add
+    </script>
+
+</body>
+
+</html>
